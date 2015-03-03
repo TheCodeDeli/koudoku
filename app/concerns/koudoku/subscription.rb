@@ -96,7 +96,7 @@ module Koudoku::Subscription
 
             # store the customer id.
             self.stripe_id = customer.id
-            self.last_four = customer.cards.retrieve(customer.default_card).last4
+            self.last_four = customer.sources.retrieve(customer.default_source).last4
 
             finalize_new_subscription!
             finalize_upgrade!
